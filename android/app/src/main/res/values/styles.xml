@@ -1,0 +1,34 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+
+        <item name="actionBarTheme">@style/ThemeOverlay.MaterialComponents.Dark.ActionBar</item>
+        <item name="tabStyle">@style/TabLayoutTheme</item>
+        <item name="android:windowBackground">@color/primarySurface</item>
+    </style>
+
+    <style name="AppTheme.ActionBarNoShadow" parent="AppTheme">
+        <item name="actionBarStyle">@style/actionBarStyle</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Launcher">
+        <item name="android:windowBackground">@drawable/launch_screen</item>
+    </style>
+
+    <style name="actionBarStyle" parent="Widget.MaterialComponents.Light.ActionBar.Solid">
+        <item name="elevation">0dp</item>
+    </style>
+    <style name="TabLayoutTheme" parent="Widget.MaterialComponents.TabLayout.Colored">
+        <item name="android:background">@color/primaryColor</item>
+        <item name="tabIndicatorColor">@color/secondaryColor</item>
+    </style>
+</resources>

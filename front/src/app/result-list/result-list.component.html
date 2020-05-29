@@ -1,0 +1,91 @@
+<div class="my-3 d-flex justify-content-center">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="!isWishList" href="javascript:void(0)"
+         (click)="changeList(false)">Results</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="isWishList" href="javascript:void(0)"
+         (click)="changeList(true)">Wish List</a>
+    </li>
+  </ul>
+</div>
+<div class="position-relative">
+  <div *ngIf="!showDetail" [@slideInOut]>
+    <div *ngIf="onProgress" class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50"
+           aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+    </div>
+    <div *ngIf="warning && !isWishList" class="alert alert-warning mx-3" role="alert">{{warning}}</div>
+    <div *ngIf="(!isWishList && items && !warning) || isWishList" class="row m-0 justify-content-end">
+      <button type="button" class="btn btn-light col-auto" [disabled]="!selectedItem"
+              (click)="getDetail()">Detail
+        <i class="material-icons">arrow_forward_ios</i>
+      </button>
+    </div>
+    <div *ngIf="warning && isWishList" class="alert alert-warning mt-3 mx-3" role="alert">{{warning}}</div>
+    <div *ngIf="items && !warning">
+      <div class="p-1 p-sm-3">
+        <div class="table-responsive">
+          <table class="table table-dark table-striped table-hover">
+            <tr>
+              <th>#</th>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Price</th>
+              <th>Shipping</th>
+              <th *ngIf="!isWishList">Zip</th>
+              <th>Seller</th>
+              <th>Wish List</th>
+            </tr>
+            <tr *ngFor="let item of items | slice:getSlicePoint(true):getSlicePoint(false); index as i;"
+                [class.selected]="item == selectedItem">
+              <td>{{isWishList ? i + 1 : currentPage * 10 + i + 1}}</td>
+              <td><img *ngIf="item.image!==''" [src]="item.image"></td>
+              <td><a href="javascript:void(0)" (click)="getDetail(currentPage * 10 + i)"
+                     [matTooltip]="item.title">{{cutTitle(item.title)}}</a>
+              </td>
+              <td>${{item.price}}</td>
+              <td>{{getShipping(item.shipping)}}</td>
+              <td *ngIf="!isWishList">{{item.zip}}</td>
+              <td>{{item.seller}}</td>
+              <td>
+                <button *ngIf="requestService.isInWishList(item.itemID);else addToCart"
+                        type="button" class="btn btn-light"
+                        (click)="requestService.deleteWishListItem(item.itemID); checkData()">
+                  <i class="material-icons" style="color: #af7d11">remove_shopping_cart</i>
+                </button>
+                <ng-template #addToCart>
+                  <button type="button" class="btn btn-light" (click)="requestService.addWishListItem(item)">
+                    <i class="material-icons">add_shopping_cart</i>
+                  </button>
+                </ng-template>
+              </td>
+            </tr>
+            <tr *ngIf="isWishList">
+              <td colspan="5"></td>
+              <td>Total Shopping</td>
+              <td>${{getTotalShopping()}}</td>
+            </tr>
+          </table>
+        </div>
+        <nav *ngIf="items && !isWishList" aria-label="Results pages">
+          <ul class="pagination justify-content-center">
+            <li class="page-item" [class.disabled]="currentPage == 0">
+              <a class="page-link border-0" href="javascript:void(0);" (click)="currentPage = currentPage - 1">
+                <span>&laquo;</span> Previous</a></li>
+            <ng-container *ngFor="let page of getPageNum(); index as i; last as islast">
+              <li class="page-item" [class.active]="i == currentPage">
+                <a class="page-link border-0" href="javascript:void(0);" (click)="currentPage = i">{{i + 1}}</a></li>
+              <li *ngIf="islast" class="page-item" [class.disabled]="currentPage >= i">
+                <a class="page-link border-0" href="javascript:void(0);" (click)="currentPage = currentPage + 1">
+                  Next <span>&raquo;</span></a></li>
+            </ng-container>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <app-item-detail [show]="showDetail" class="position-absolute w-100 top"
+                   (back)="showDetail = false"></app-item-detail>
+</div>

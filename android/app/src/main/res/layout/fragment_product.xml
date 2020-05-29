@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent"
+            android:layout_width="match_parent">
+    <LinearLayout android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+        <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="250dp"
+                          android:orientation="horizontal" android:id="@+id/images"/>
+        </HorizontalScrollView>
+        <TextView
+                android:text="TextView"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/title" android:textSize="18sp"
+                android:textStyle="bold" android:textColor="@color/secondaryTextColor"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="10dp">
+            <TextView
+                    android:text="TextView"
+                    android:layout_marginEnd="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/price"
+                    android:textColor="@color/primaryColor" android:textStyle="bold"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/shipping_cost"/>
+        </LinearLayout>
+        <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="30dp"
+                android:background="?android:attr/listDivider"
+        />
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <ImageView
+                    android:layout_margin="10dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    app:srcCompat="@drawable/ic_information"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:text="Highlights"
+                        android:layout_marginVertical="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textStyle="bold"
+                        android:textColor="@color/secondaryTextColor" android:textSize="16sp"/>
+                <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <TableRow android:layout_width="match_parent" android:layout_height="wrap_content"
+                              android:id="@+id/row_subtitle"
+                              android:layout_marginVertical="5dp">
+                        <TextView
+                                android:text="Subtitle"
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent" android:textColor="@color/secondaryTextColor"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content" android:id="@+id/subtitle"/>
+                    </TableRow>
+                    <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
+                              android:id="@+id/row_price"
+                              android:layout_marginVertical="5dp">
+                        <TextView
+                                android:text="Price"
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent" android:textColor="@color/secondaryTextColor"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:id="@+id/hightlights_price"/>
+                    </TableRow>
+                    <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
+                              android:id="@+id/row_brand"
+                              android:layout_marginVertical="5dp">
+                        <TextView
+                                android:text="Brand"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content" android:textColor="@color/secondaryTextColor"/>
+                        <TextView
+                                android:text="TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:id="@+id/brand"/>
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="30dp"
+                android:background="?android:attr/listDivider"
+        />
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <ImageView android:layout_width="20dp"
+                       android:layout_height="20dp"
+                       app:srcCompat="@drawable/ic_wrench"
+                       android:layout_margin="10dp"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:text="Specificatuions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textColor="@color/secondaryTextColor"
+                        android:textStyle="bold" android:textSize="16sp"
+                        android:layout_marginVertical="8dp"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/specifications"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

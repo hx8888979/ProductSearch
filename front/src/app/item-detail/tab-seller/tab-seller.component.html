@@ -1,0 +1,34 @@
+<table class="table table-dark table-striped">
+  <tr *ngIf="seller.id">
+    <td colspan="2"><h2 class="text-center">{{seller.id.toUpperCase()}}</h2></td>
+  </tr>
+  <tr *ngIf="seller.feedbackScore">
+    <td>Feedback Score</td>
+    <td>{{seller.feedbackScore}}</td>
+  </tr>
+  <tr *ngIf="seller.popularity">
+    <td>Popularity</td>
+    <td><div class="round-index">
+      <round-progress [max]="100" [current]="seller.popularity" [color]="'green'" [radius]="18" [stroke]="2" [clockwise]="false"></round-progress>
+      <span>{{seller.popularity}}</span></div>
+    </td>
+  </tr>
+  <tr *ngIf="seller.feedbackRatingStar">
+    <td>Feedback Rating Star</td>
+    <td><i class="material-icons" [style.color]="seller.feedbackRatingStar.toLowerCase()">{{getStar()}}</i></td>
+  </tr>
+  <tr *ngIf="seller.topRated">
+    <td>Top Rated</td>
+    <ng-template *ngIf="seller.topRated == 'true';then trueIcon else falseIcon"></ng-template>
+  </tr>
+  <tr *ngIf="seller.storeName">
+    <td>Store Name</td>
+    <td>{{seller.storeName}}</td>
+  </tr>
+  <tr *ngIf="seller.buyProductAt">
+    <td>Buy Product At</td>
+    <td><a target="_blank" [href]="seller.buyProductAt">Store</a></td>
+  </tr>
+</table>
+<ng-template #trueIcon><td><i class="material-icons" style="color: green;">check</i></td></ng-template>
+<ng-template #falseIcon><td><i class="material-icons" style="color: red;">close</i></td></ng-template>

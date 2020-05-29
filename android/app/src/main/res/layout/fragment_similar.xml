@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+        <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:id="@+id/sort_method" android:layout_weight="1"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="10dp"
+                android:entries="@array/sort_method"/>
+        <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:id="@+id/sort_order" android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="30dp"
+                android:entries="@array/sort_order"/>
+    </LinearLayout>
+    <TextView
+            android:text="No results"
+            android:visibility="gone"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:id="@+id/hint"/>
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:id="@+id/view"></androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

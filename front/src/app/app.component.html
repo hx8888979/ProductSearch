@@ -1,0 +1,5 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-search-form class="text-white col-12 rounded mt-3" style="background-color: #1f1f26;"
+                 (search)="resultList.fetchSearchResult($event)" (reset)="resultList.reset()"></app-search-form>
+<app-result-list class="col-12 p-0" #resultList></app-result-list>
+

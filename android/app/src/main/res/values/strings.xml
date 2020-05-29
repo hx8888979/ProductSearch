@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Product Search</string>
+    <array name="sort_method">
+        <item>Default</item>
+        <item>Name</item>
+        <item>Price</item>
+        <item>Days</item>
+    </array>
+    <array name="sort_order">
+        <item>Ascending</item>
+        <item>Descending</item>
+    </array>
+    <array name="category">
+        <item>All</item>
+        <item>Art</item>
+        <item>Body</item>
+        <item>Books</item>
+        <item>Clothing, Shoes &amp; Accessories</item>
+        <item>Computers/Tablets &amp; Networking</item>
+        <item>Health &amp; Beauty</item>
+        <item>Music</item>
+        <item>Video Games &amp; Consoles</item>
+    </array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

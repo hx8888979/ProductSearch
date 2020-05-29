@@ -1,0 +1,10 @@
+@media (min-width: 576px) {
+  .card-space {
+    height: 300px;
+  }
+}
+@media (max-width: 575.98px) {
+  .card-space {
+    height: 0px;
+  }
+}

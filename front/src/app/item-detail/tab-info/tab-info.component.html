@@ -1,0 +1,42 @@
+<table class="table table-dark table-striped">
+  <tr>
+    <td>Product Images</td>
+    <td><a href="javascript:void(0);" data-toggle="modal" data-target="#imageViewer">View Product Images Here</a></td>
+  </tr>
+  <tr *ngFor="let tableRow of info.itemSpecifics">
+    <td>{{tableRow.name}}</td>
+    <td>{{tableRow.value}}</td>
+  </tr>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="imageViewer" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Product Images</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="pictures" class="carousel slide m-2" data-ride="carousel">
+          <div class="carousel-inner">
+            <div *ngFor="let url of info.image;first as f;" class="carousel-item rounded p-2 bg-dark" [class.active]="f">
+              <a target="_blank" [href]="url"><img [src]="url" class="w-100 p-1 bg-white img-fluid"></a>
+            </div>
+            <a class="carousel-control-prev" href="#pictures" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#pictures" role="button" data-slide="next">
+              <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

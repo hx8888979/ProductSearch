@@ -1,0 +1,28 @@
+<table class="table table-dark table-striped">
+  <tr *ngIf="shipping.shippingCost">
+    <td>Shipping Cost</td>
+    <td>{{getShipping(shipping.shippingCost)}}</td>
+  </tr>
+  <tr *ngIf="shipping.shippingLocation">
+    <td>Shipping Location</td>
+    <td>{{shipping.shippingLocation}}</td>
+  </tr>
+  <tr *ngIf="shipping.handlingTime">
+    <td>Handling Time</td>
+    <td>{{shipping.handlingTime}}</td>
+  </tr>
+  <tr *ngIf="shipping.expeditedShipping">
+    <td>Expedited Shipping</td>
+    <ng-template *ngIf="shipping.expeditedShipping == 'true';then trueIcon else falseIcon"></ng-template>
+  </tr>
+  <tr *ngIf="shipping.oneDayShipping">
+    <td>One Day Shipping</td>
+    <ng-template *ngIf="shipping.oneDayShipping == 'true';then trueIcon else falseIcon"></ng-template>
+  </tr>
+  <tr *ngIf="shipping.returnAccepted">
+    <td>Return Accept</td>
+    <ng-template *ngIf="shipping.returnAccepted == 'true';then trueIcon else falseIcon"></ng-template>
+  </tr>
+</table>
+<ng-template #trueIcon><td><i class="material-icons" style="color: green;">check</i></td></ng-template>
+<ng-template #falseIcon><td><i class="material-icons" style="color: red;">close</i></td></ng-template>
