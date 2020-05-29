@@ -8,11 +8,19 @@
 3. android - android application
 
 ## Preview
-1. index page
+### index page
 ![index](preview/index.png)
-2. result page
+
+
+### result page
 ![result](preview/result.png)
-3. detail page
+
+
+### detail page
 ![detail](preview/detail.png)
-4. android
+
+
+### android
 ![android](preview/android.png)
+
+
